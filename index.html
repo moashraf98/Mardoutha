@@ -4,181 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Message for Meredith 🐾</title>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          // حط الـ Public Key بتاعك هنا
+          emailjs.init("YOUR_PUBLIC_KEY"); 
+       })();
+    </script>
+ 
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            /* وضع صورتك كخلفية مع طبقة شفافة عشان الكلام يبان */
-            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
-                        url('heart-bg.jpg') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
-            text-align: center;
-        }
- 
-        #container {
-            background: rgba(255, 255, 255, 0.9); /* خلفية بيضاء شفافة شوية */
-            padding: 25px;
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            max-width: 90%;
-            width: 360px;
-            position: relative;
-            backdrop-filter: blur(5px); /* تأثير زجاجي للمحتوى */
-        }
- 
-        .cat-img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #fce4ec;
-            margin-bottom: 10px;
-        }
- 
-        .dance-gif {
-            width: 100px;
-            margin-bottom: 5px;
-        }
- 
-        h1 {
-            color: #d81b60;
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
- 
-        p {
-            color: #333;
-            font-size: 15px;
-            margin-bottom: 5px;
-        }
- 
-        .buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 20px;
-            min-height: 60px;
-        }
- 
-        button {
-            padding: 10px 25px;
-            font-size: 16px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: transform 0.1s ease;
-        }
- 
-        #yesBtn {
-            background-color: #4caf50;
-            color: white;
-            z-index: 1000;
-        }
- 
-        #noBtn {
-            background-color: #f44336;
-            color: white;
-            position: relative; /* يظهر جنب الـ Yes في الأول */
-            z-index: 999;
-        }
- 
-        .hidden {
-            display: none;
-        }
- 
-        .catchphrase {
-            color: #d81b60;
-            font-size: 28px;
-            font-weight: 900;
-            display: block;
-            margin: 10px 0;
-            text-transform: uppercase;
-            animation: pulse 1.2s infinite;
-        }
- 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+        body { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('heart-bg.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            overflow: hidden; 
+            text-align: center; 
+        } 
+        #container { 
+            background: rgba(255, 255, 255, 0.9); 
+            padding: 25px; 
+            border-radius: 25px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+            max-width: 90%; 
+            width: 360px; 
+            position: relative; 
+            backdrop-filter: blur(5px); 
+        } 
+        .cat-img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid #fce4ec; margin-bottom: 10px; } 
+        .dance-gif { width: 100px; margin-bottom: 5px; } 
+        h1 { color: #d81b60; font-size: 20px; margin-bottom: 5px; } 
+        p { color: #333; font-size: 15px; margin-bottom: 5px; } 
+        .buttons { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px; min-height: 60px; } 
+        button { padding: 10px 25px; font-size: 16px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; transition: transform 0.1s ease; } 
+        #yesBtn { background-color: #4caf50; color: white; z-index: 1000; } 
+        #noBtn { background-color: #f44336; color: white; position: relative; z-index: 999; } 
+        .hidden { display: none; } 
+        .catchphrase { color: #d81b60; font-size: 28px; font-weight: 900; display: block; margin: 10px 0; text-transform: uppercase; animation: pulse 1.2s infinite; } 
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
     </style>
 </head>
 <body>
  
-    <div id="container">
-        <div id="main-content">
-            <img src="cat1.jpg" class="cat-img" alt="Kitty">
-            <h1>Meredith, your cat has a question... 🐾</h1>
-            <p>Will you be our Valentine?</p>
-            <div class="buttons">
-                <button id="yesBtn">Yes!</button>
-                <button id="noBtn">No</button>
-            </div>
-        </div>
- 
-        <div id="success-content" class="hidden">
-            <img src="dance.gif" class="dance-gif" alt="Dancing Cat">
-            <span class="catchphrase">Ah Ya Habibi! ❤️</span>
-            <img src="cat2.jpg" class="cat-img" alt="Happy Kitty">
-            <p style="font-size: 17px; font-weight: bold; color: #333;">I knew you'd say YES!</p>
-            <p style="color: #d81b60; font-size: 14px; font-weight: 500; line-height: 1.6;">
-        Cairo hasn't been the same since you left... <br>
-        Hopefully, this makes your heart feel a little lighter today. ✨
-    </p>
-            <p style="color: #666; font-size: 13px;">
-                Happy Valentine's Day, Meredith. <br>
-                NYC is about to get much better, Inshallah! 😉
-            </p>
-            <p style="font-size: 11px; color: #ad1457; margin-top: 15px; font-weight: bold;">
-                Coded with ❤️ by your favorite Egyptian
-            </p>
+<div id="container">
+    <div id="main-content">
+        <img src="cat1.jpg" class="cat-img" alt="Kitty">
+        <h1>Meredith, Robin has a question... 🐾</h1>
+        <p>Will you be our Valentine?</p>
+        <div class="buttons">
+            <button id="yesBtn">Yes!</button>
+            <button id="noBtn">No</button>
         </div>
     </div>
  
-    <script>
-        const noBtn = document.getElementById('noBtn');
-        const yesBtn = document.getElementById('yesBtn');
-        const mainContent = document.getElementById('main-content');
-        const successContent = document.getElementById('success-content');
-        const audio = new Audio('voice.mp3');
+    <div id="success-content" class="hidden">
+        <img src="dance.gif" class="dance-gif" alt="Dancing Cat">
+        <span class="catchphrase">Ah Ya Habibi! ❤️</span>
+        <img src="cat2.jpg" class="cat-img" alt="Happy Kitty">
+        <p style="font-size: 17px; font-weight: bold; color: #333;">I knew you'd say YES!</p>
+        <p style="color: #d81b60; font-size: 14px; font-weight: 500; line-height: 1.6;"> 
+            Cairo hasn't been the same since you left... <br> 
+            I hope this makes you feel really <b>Mbsoota</b> today, <br> 
+            and makes your heart feel a little lighter. ✨ 
+        </p>
+        <p style="color: #666; font-size: 13px;"> 
+            Happy Valentine's Day, Meredith. <br> 
+            NYC is about to get much better, Inshallah! 😉 
+        </p>
+        <p style="font-size: 11px; color: #ad1457; margin-top: 15px; font-weight: bold;"> 
+            Coded with ❤️ by your favorite Egyptian 
+        </p>
+    </div>
+</div>
  
-        function moveButton() {
-            noBtn.style.position = 'fixed'; // يبدأ يطير لما الماوس يقرب
-            
-            const padding = 100;
-            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - padding) + (padding / 2);
-            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - padding) + (padding / 2);
-            
-            noBtn.style.left = x + 'px';
-            noBtn.style.top = y + 'px';
+<script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const mainContent = document.getElementById('main-content');
+    const successContent = document.getElementById('success-content');
+    const audio = new Audio('voice.mp3');
+    
+    let noAttemptSent = false;
  
-            // تكبير زرار الـ Yes تدريجياً
-            let currentFontSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
-            if (currentFontSize < 60) {
-                yesBtn.style.fontSize = (currentFontSize + 3) + 'px';
-                yesBtn.style.padding = (currentFontSize / 2 + 5) + 'px ' + (currentFontSize + 15) + 'px';
-            }
+    // Function بتبعت الإيميل
+    function sendTracking(status) {
+        emailjs.send("service_h9oz2nf", "template_aom13to", {
+            status: status
+        });
+    }
+ 
+    function moveButton() {
+        // لو حاولت تدوس No نبعت إشعار مرة واحدة بس
+        if (!noAttemptSent) {
+            sendTracking("She tried to click NO! 🏃‍♀️");
+            noAttemptSent = true;
         }
  
-        noBtn.addEventListener('mouseover', moveButton);
-        noBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            moveButton();
-        });
+        noBtn.style.position = 'fixed';
+        const padding = 100;
+        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - padding) + (padding / 2);
+        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - padding) + (padding / 2);
+        noBtn.style.left = x + 'px';
+        noBtn.style.top = y + 'px';
  
-        yesBtn.addEventListener('click', () => {
-            audio.play().catch(e => console.log("Audio logic: Interaction needed."));
-            mainContent.classList.add('hidden');
-            successContent.classList.remove('hidden');
-        });
-    </script>
+        let currentFontSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+        if (currentFontSize < 60) {
+            yesBtn.style.fontSize = (currentFontSize + 3) + 'px';
+            yesBtn.style.padding = (currentFontSize / 2 + 5) + 'px ' + (currentFontSize + 15) + 'px';
+        }
+    }
+ 
+    noBtn.addEventListener('mouseover', moveButton);
+    noBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        moveButton();
+    });
+ 
+    yesBtn.addEventListener('click', () => {
+        // نبعت إيميل إنها وافقت!
+        sendTracking("SHE SAID YES! 😍❤️");
+ 
+        audio.play().catch(e => console.log("Audio logic: Interaction needed."));
+        mainContent.classList.add('hidden');
+        successContent.classList.remove('hidden');
+    });
+</script>
+ 
+<script type="text/javascript">
+var sc_project=13204848; 
+var sc_invisible=1; 
+var sc_security="87ce7d3d"; 
+</script>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
 </body>
 </html>
  
